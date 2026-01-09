@@ -43,6 +43,8 @@ const STEPS = [
 ];
 
 function App() {
+  console.log('App component rendering...')
+  
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -103,62 +105,78 @@ function App() {
     </div>
   );
 
-  return (
-    <div className="App">
-      <ModeToggle />
-      
-      <div className="container">
-        <ProgressBar />
+  try {
+    return (
+      <div className="App">
+        <ModeToggle />
         
-        <Routes>
-          <Route 
-            path="/" 
-            element={<LandingPage appState={appState} setAppState={setAppState} navigate={navigate} />} 
-          />
-          <Route 
-            path="/setup" 
-            element={<AuthenticatorSetup appState={appState} setAppState={setAppState} navigate={navigate} />} 
-          />
-          <Route 
-            path="/vault-init" 
-            element={<VaultInitialization appState={appState} setAppState={setAppState} navigate={navigate} />} 
-          />
-          <Route 
-            path="/encryption" 
-            element={<EncryptionEngine appState={appState} setAppState={setAppState} navigate={navigate} />} 
-          />
-          <Route 
-            path="/cloud-pms" 
-            element={<CloudPMSView appState={appState} setAppState={setAppState} navigate={navigate} />} 
-          />
-          <Route 
-            path="/vault" 
-            element={<VaultDashboard appState={appState} setAppState={setAppState} navigate={navigate} />} 
-          />
-          <Route 
-            path="/rp-registration" 
-            element={<RPRegistration appState={appState} setAppState={setAppState} navigate={navigate} />} 
-          />
-          <Route 
-            path="/login" 
-            element={<NormalLogin appState={appState} setAppState={setAppState} navigate={navigate} />} 
-          />
-          <Route 
-            path="/attacker" 
-            element={<AttackerMode appState={appState} setAppState={setAppState} navigate={navigate} />} 
-          />
-          <Route 
-            path="/breach" 
-            element={<BreachDetection appState={appState} setAppState={setAppState} navigate={navigate} />} 
-          />
-          <Route 
-            path="/complete" 
-            element={<AlgorithmCompletion appState={appState} setAppState={setAppState} navigate={navigate} />} 
-          />
-        </Routes>
+        <div className="container">
+          <ProgressBar />
+          
+          <Routes>
+            <Route 
+              path="/" 
+              element={<LandingPage appState={appState} setAppState={setAppState} navigate={navigate} />} 
+            />
+            <Route 
+              path="/setup" 
+              element={<AuthenticatorSetup appState={appState} setAppState={setAppState} navigate={navigate} />} 
+            />
+            <Route 
+              path="/vault-init" 
+              element={<VaultInitialization appState={appState} setAppState={setAppState} navigate={navigate} />} 
+            />
+            <Route 
+              path="/encryption" 
+              element={<EncryptionEngine appState={appState} setAppState={setAppState} navigate={navigate} />} 
+            />
+            <Route 
+              path="/cloud-pms" 
+              element={<CloudPMSView appState={appState} setAppState={setAppState} navigate={navigate} />} 
+            />
+            <Route 
+              path="/vault" 
+              element={<VaultDashboard appState={appState} setAppState={setAppState} navigate={navigate} />} 
+            />
+            <Route 
+              path="/rp-registration" 
+              element={<RPRegistration appState={appState} setAppState={setAppState} navigate={navigate} />} 
+            />
+            <Route 
+              path="/login" 
+              element={<NormalLogin appState={appState} setAppState={setAppState} navigate={navigate} />} 
+            />
+            <Route 
+              path="/attacker" 
+              element={<AttackerMode appState={appState} setAppState={setAppState} navigate={navigate} />} 
+            />
+            <Route 
+              path="/breach" 
+              element={<BreachDetection appState={appState} setAppState={setAppState} navigate={navigate} />} 
+            />
+            <Route 
+              path="/complete" 
+              element={<AlgorithmCompletion appState={appState} setAppState={setAppState} navigate={navigate} />} 
+            />
+          </Routes>
+        </div>
       </div>
-    </div>
-  );
+    );
+  } catch (error) {
+    console.error('App render error:', error);
+    return (
+      <div className="container">
+        <div className="card">
+          <h1>🔐 CASPER Authenticator</h1>
+          <div className="alert alert-danger">
+            <h4>Loading Error</h4>
+            <p>There was an error loading the application. Please refresh the page.</p>
+            <p>Error: {error instanceof Error ? error.message : 'Unknown error'}</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default App;
