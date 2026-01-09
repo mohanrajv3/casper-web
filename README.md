@@ -42,6 +42,17 @@ npm install
 ```bash
 npm run dev
 ```
+Access at: http://localhost:3000/
+
+### Production Deployment (Vercel)
+```bash
+# Quick deployment
+./deploy.sh
+
+# Or manually
+npm install -g vercel
+vercel --prod
+```
 
 ### Build
 ```bash

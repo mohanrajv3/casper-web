@@ -4,8 +4,20 @@
 
 The CASPER-based web authenticator is now fully operational and ready for academic review and security evaluation.
 
-### Current Status
-- ✅ **Development Server Running**: http://localhost:3000/
+### Deployment Options
+
+#### 🌐 **Live Production Deployment (Recommended)**
+Deploy to Vercel for instant worldwide access:
+```bash
+# Quick deploy via Vercel CLI
+npm install -g vercel
+vercel login
+vercel --prod
+```
+**Result**: Live URL accessible globally in ~3 minutes
+
+#### 💻 **Local Development**
+- ✅ **Development Server**: http://localhost:3000/
 - ✅ **All Components Implemented**: Complete CASPER algorithm
 - ✅ **Real Cryptography**: ECDSA, HKDF, XOR encryption
 - ✅ **Working Breach Detection**: Actual threat detection
@@ -57,13 +69,39 @@ The CASPER-based web authenticator is now fully operational and ready for academ
 
 **"The CASPER algorithm is fully implemented and operational in this web authenticator. Native mobile authenticator deployment is a packaging extension, not an algorithmic dependency."**
 
-## 🌐 Access Instructions
+## 🌐 Vercel Deployment Guide
 
-1. **Open Browser**: Navigate to http://localhost:3000/
-2. **Follow System Flow**: Complete 11-step demonstration
-3. **Experience Real Crypto**: All operations use actual cryptography
-4. **Witness Breach Detection**: See real attack detection in action
-5. **Export Results**: Generate implementation report
+### Step-by-Step Deployment
+
+1. **Push to GitHub** (if not already done):
+   ```bash
+   git add .
+   git commit -m "Complete CASPER authenticator implementation"
+   git push origin main
+   ```
+
+2. **Deploy to Vercel**:
+   - Visit [vercel.com](https://vercel.com)
+   - Sign in with GitHub
+   - Click "New Project" → Import your repository
+   - Configure:
+     - Framework: **Vite**
+     - Build Command: `npm run build`
+     - Output Directory: `dist`
+   - Click **Deploy**
+
+3. **Result**: Live URL in ~3 minutes
+   - Production URL: `https://casper-web-[username].vercel.app`
+   - Automatic HTTPS, global CDN, 99.99% uptime
+
+### Deployment Features
+- ✅ **Automatic Deployments**: Every GitHub push
+- ✅ **Global CDN**: 100+ edge locations worldwide
+- ✅ **HTTPS Everywhere**: Automatic SSL certificates
+- ✅ **Zero Configuration**: Works out of the box
+- ✅ **Preview Deployments**: For pull requests
+
+See [VERCEL_DEPLOYMENT.md](./VERCEL_DEPLOYMENT.md) for detailed instructions.
 
 ## 🛡️ Security Verification
 
